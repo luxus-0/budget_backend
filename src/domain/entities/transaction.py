@@ -25,7 +25,7 @@ class Transaction:
     id: UUID
     account_id: UUID
     amount: Money
-    type: TransactionType
+    kind: TransactionType
     category_id: Optional[UUID] = None
     description: str = ""
 
@@ -41,18 +41,20 @@ class Transaction:
                 "use `kind` to express direction, not the sign of amount"
             )
 
-        if self.type == TransactionType.TRANSFER and self.category_id is not None:
+        if self.kind == TransactionType.TRANSFER and self.category_id is not None:
             raise InvalidTransactionError("Transfers cannot have a category")
 
-        if self.type != TransactionType.TRANSFER and self.category_id is None:
-            raise InvalidTransactionError("transactions must have a category")
+        if self.kind != TransactionType.TRANSFER and self.category_id is None:
+            raise InvalidTransactionError(
+                f"{self.kind.value} transactions must have a category"
+            )
 
     @classmethod
     def create(
         cls,
         account_id: UUID,
         amount: Money,
-        type: TransactionType,
+        kind: TransactionType,
         description: str = "",
         category_id: Optional[UUID] = None,
     ) -> "Transaction":
@@ -61,11 +63,11 @@ class Transaction:
             account_id=account_id,
             category_id=category_id,
             amount=amount,
-            type=type,
+            kind=kind,
             description=description,
         )
 
     def signed_amount(self) -> Money:
-        if self.type == TransactionType.INCOME:
+        if self.kind == TransactionType.INCOME:
             return self.amount
         return -self.amount
