@@ -64,11 +64,12 @@ class Transaction:
         i obie są bezpieczne. Zostawiamy `create()` na przyszłość, np.
         pod emisję zdarzenia domenowego przy tworzeniu."""
         return cls(
+            id=uuid4(),
             account_id=account_id,
+            category_id=category_id,
             amount=amount,
             type=type,
             description=description,
-            category_id=category_id,
         )
 
     def signed_amount(self) -> Money:
