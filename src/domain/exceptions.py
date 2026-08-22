@@ -11,3 +11,7 @@ class InvalidAmountError(DomainError):
 
 class InvalidTransactionError(DomainError):
     pass
+
+
+class InvalidAccountError(DomainError):
+    pass
