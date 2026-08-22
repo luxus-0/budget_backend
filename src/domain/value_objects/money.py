@@ -1,27 +1,32 @@
 from dataclasses import dataclass
 from decimal import Decimal
+from functools import total_ordering
 from numbers import Number
 
-from domain.exceptions import InvalidCurrencyError, InvalidAmountError
+from src.domain.exceptions import InvalidCurrencyError, InvalidAmountError
 
 
+@total_ordering
 @dataclass(frozen=True, slots=True)
 class Money:
     amount: Decimal
-    currency: str = 'USD'
+    currency: str = "USD"
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
+        if not isinstance(self.amount, Decimal):
+            raise InvalidAmountError("Amount must be a Decimal instance")
+
         currency = self.currency.strip().upper()
-
         if len(currency) != 3 or not currency.isalpha():
-            raise InvalidCurrencyError(f'Currency must be 3 big letter!!')
+            raise InvalidCurrencyError("Currency must be a 3-letter code")
 
-        if self.amount < 0 or self.amount.is_zero():
-            raise InvalidAmountError('Amount cannot be zero or negative!')
+        object.__setattr__(self, "currency", currency)
 
-    def _ensure_same_currency(self, other: "Money"):
+    def _ensure_same_currency(self, other: "Money") -> None:
         if self.currency != other.currency:
-            raise InvalidCurrencyError(f'Currencies must be the same')
+            raise InvalidCurrencyError(
+                f"Currencies must match: {self.currency} != {other.currency}"
+            )
 
     def __add__(self, other: "Money") -> "Money":
         self._ensure_same_currency(other)
@@ -31,28 +36,29 @@ class Money:
         self._ensure_same_currency(other)
         return Money(self.amount - other.amount, self.currency)
 
-    def __mul__(self, number: Number) -> "Money":
-        return Money(self.amount * Decimal(str(number)), self.currency)
+    def __mul__(self, factor: Number) -> "Money":
+        return Money(self.amount * Decimal(str(factor)), self.currency)
+
+    __rmul__ = __mul__
+
+    def __truediv__(self, divisor: Number) -> "Money":
+        return Money(self.amount / Decimal(str(divisor)), self.currency)
 
     def __neg__(self) -> "Money":
         return Money(-self.amount, self.currency)
+
+    def __abs__(self) -> "Money":
+        return Money(abs(self.amount), self.currency)
 
     def __lt__(self, other: "Money") -> bool:
         self._ensure_same_currency(other)
         return self.amount < other.amount
 
-    def __le__(self, other: "Money") -> bool:
-        self._ensure_same_currency(other)
-        return self.amount <= other.amount
+    def is_zero(self) -> bool:
+        return self.amount.is_zero()
 
-    def __gt__(self, other: "Money") -> bool:
-        self._ensure_same_currency(other)
-        return self.amount > other.amount
-
-    def __ge__(self, other: "Money") -> bool:
-        self._ensure_same_currency(other)
-        return self.amount >= other.amount
-
+    def is_negative(self) -> bool:
+        return self.amount < 0
 
     def __str__(self) -> str:
         return f"{self.amount:.2f} {self.currency}"

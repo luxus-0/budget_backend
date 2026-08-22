@@ -1,8 +1,13 @@
-class InvalidTransactionError(Exception):
+class DomainError(Exception):
     pass
 
-class InvalidCurrencyError(Exception):
+class InvalidCurrencyError(DomainError):
     pass
 
-class InvalidAmountError(Exception):
+
+class InvalidAmountError(DomainError):
+    pass
+
+
+class InvalidTransactionError(DomainError):
     pass
