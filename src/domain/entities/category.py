@@ -38,14 +38,10 @@ class Category:
         name = self.name.strip()
 
         if not name:
-            raise InvalidCategoryError(
-                "Category name cannot be empty."
-            )
+            raise InvalidCategoryError("Category name cannot be empty.")
 
         if len(name) > 70:
-            raise InvalidCategoryError(
-                "Category name cannot exceed 70 characters."
-            )
+            raise InvalidCategoryError("Category name cannot exceed 70 characters.")
 
         object.__setattr__(self, "name", name)
 
@@ -80,7 +76,6 @@ class Category:
     def rename(self, name: str) -> "Category":
         """
         Create a new category with the specified name.
-
         The current category remains unchanged.
 
         Args:
