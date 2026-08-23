@@ -1,11 +1,12 @@
 class DomainError(Exception):
     pass
 
-class InvalidCurrencyError(DomainError):
+
+class InvalidAccountError(DomainError):
     pass
 
 
-class InvalidAmountError(DomainError):
+class InvalidCategoryError(DomainError):
     pass
 
 
@@ -13,8 +14,9 @@ class InvalidTransactionError(DomainError):
     pass
 
 
-class InvalidAccountError(DomainError):
+class InvalidAmountError(DomainError):
     pass
 
-class InvalidCategoryError(DomainError):
+
+class InvalidCurrencyError(DomainError):
     pass
