@@ -63,7 +63,8 @@ class Money:
             self.currency,
         )
 
-    __rmul__ = __mul__
+    def __rmul__(self, factor: Number) -> Money:
+        return self.__mul__(factor)
 
     def __truediv__(self, divisor: Number) -> Money:
         return Money(
