@@ -15,3 +15,6 @@ class InvalidTransactionError(DomainError):
 
 class InvalidAccountError(DomainError):
     pass
+
+class InvalidCategoryError(DomainError):
+    pass
