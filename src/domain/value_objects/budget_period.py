@@ -19,5 +19,5 @@ class BudgetPeriod:
 
         if not (1 <= self.month <= 12):
             raise ValueError(f'Month must be between 1 and 12')
-        if self.year >= 2026:
+        if self.year < datetime.datetime.now().year:
             raise ValueError(f'Year must be more or equal than 2026')
