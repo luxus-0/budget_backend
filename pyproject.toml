@@ -9,3 +9,5 @@ dependencies = [
     "pydantic-settings",
     "alembic"
 ]
+[tool.pytest.ini_options]
+pythonpath = ["src"]
