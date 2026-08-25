@@ -21,6 +21,7 @@ class InvalidAmountError(DomainError):
 class InvalidCurrencyError(DomainError):
     pass
 
+
 class InvalidBudgetError(DomainError):
     pass
 
