@@ -47,11 +47,11 @@ class Category:
 
     @classmethod
     def create(
-        cls,
-        name: str,
-        kind: CategoryType,
-        user_id: UUID | None = None,
-        parent_id: UUID | None = None,
+            cls,
+            name: str,
+            kind: CategoryType,
+            user_id: UUID | None = None,
+            parent_id: UUID | None = None,
     ) -> "Category":
         """
         Create a new category.
