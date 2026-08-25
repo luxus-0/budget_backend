@@ -19,5 +19,5 @@ class AccountRepository(Protocol):
     def save(self, account: Account) -> None:
         pass
 
-    def get_by_id(self, account_id: UUID) -> Account:
+    def get_by_id(self, account_id: UUID, user_id: UUID) -> Account | None:
         pass
