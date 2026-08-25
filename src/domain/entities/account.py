@@ -45,11 +45,11 @@ class Account:
 
     @classmethod
     def create(
-        cls,
-        user_id: UUID,
-        name: str,
-        currency: str,
-        kind: AccountType,
+            cls,
+            user_id: UUID,
+            name: str,
+            currency: str,
+            kind: AccountType,
     ) -> "Account":
         """
         Create a new financial account.

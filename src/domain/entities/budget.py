@@ -11,9 +11,9 @@ from dataclasses import dataclass, field
 from decimal import Decimal
 from uuid import UUID, uuid4
 
-from src.domain.exceptions import InvalidBudgetError
-from src.domain.value_objects.budget_period import BudgetPeriod
-from src.domain.value_objects.money import Money
+from domain.exceptions import InvalidBudgetError
+from domain.value_objects.budget_period import BudgetPeriod
+from domain.value_objects.money import Money
 
 
 @dataclass
