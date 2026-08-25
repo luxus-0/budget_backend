@@ -93,11 +93,11 @@ def test_transaction_uses_empty_description_by_default() -> None:
     ],
 )
 def test_transaction_rejects_non_positive_amount(
-    amount: Money,
+        amount: Money,
 ) -> None:
     with pytest.raises(
-        InvalidTransactionError,
-        match="Transaction amount must be strictly positive.",
+            InvalidTransactionError,
+            match="Transaction amount must be strictly positive.",
     ):
         Transaction.create(
             account_id=uuid4(),
@@ -143,8 +143,8 @@ def test_expense_signed_amount_is_negative() -> None:
     ],
 )
 def test_signed_amount_reflects_transaction_type(
-    kind: TransactionType,
-    expected_amount: Decimal,
+        kind: TransactionType,
+        expected_amount: Decimal,
 ) -> None:
     transaction = Transaction.create(
         account_id=uuid4(),
@@ -168,6 +168,7 @@ def test_transaction_preserves_occurred_at() -> None:
         amount=Money(Decimal("100.00"), "PLN"),
         kind=TransactionType.EXPENSE,
         category_id=uuid4(),
+        user_id=uuid4(),
         occurred_at=occurred_at,
     )
 
@@ -183,6 +184,7 @@ def test_transaction_preserves_created_at() -> None:
         amount=Money(Decimal("100.00"), "PLN"),
         kind=TransactionType.EXPENSE,
         category_id=uuid4(),
+        user_id=uuid4(),
         created_at=created_at,
     )
 

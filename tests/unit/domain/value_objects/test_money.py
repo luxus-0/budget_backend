@@ -43,16 +43,16 @@ def test_money_strips_currency_whitespace() -> None:
 )
 def test_money_rejects_non_decimal_amount(amount: Any) -> None:
     with pytest.raises(
-        InvalidAmountError,
-        match="Amount must be a Decimal instance.",
+            InvalidAmountError,
+            match="Amount must be a Decimal instance.",
     ):
         Money(amount)
 
 
 def test_money_rejects_invalid_currency() -> None:
     with pytest.raises(
-        InvalidCurrencyError,
-        match="Unsupported currency: ABC",
+            InvalidCurrencyError,
+            match="Unsupported currency: ABC",
     ):
         Money(Decimal("100.00"), "abc")
 
@@ -78,8 +78,8 @@ def test_money_rejects_addition_of_different_currencies() -> None:
     second = Money(Decimal("50.00"), "EUR")
 
     with pytest.raises(
-        InvalidCurrencyError,
-        match="Currencies must match: PLN != EUR",
+            InvalidCurrencyError,
+            match="Currencies must match: PLN != EUR",
     ):
         first + second
 
@@ -98,8 +98,8 @@ def test_money_rejects_subtraction_of_different_currencies() -> None:
     second = Money(Decimal("50.00"), "EUR")
 
     with pytest.raises(
-        InvalidCurrencyError,
-        match="Currencies must match: PLN != EUR",
+            InvalidCurrencyError,
+            match="Currencies must match: PLN != EUR",
     ):
         first - second
 
@@ -115,9 +115,9 @@ def test_money_rejects_subtraction_of_different_currencies() -> None:
     ],
 )
 def test_money_multiplies_by_factor(
-    amount: str,
-    factor: Any,
-    expected: str,
+        amount: str,
+        factor: Any,
+        expected: str,
 ) -> None:
     money = Money(Decimal(amount), "PLN")
 
@@ -175,9 +175,9 @@ def test_money_returns_absolute_value() -> None:
     ],
 )
 def test_money_less_than(
-    left: str,
-    right: str,
-    expected: bool,
+        left: str,
+        right: str,
+        expected: bool,
 ) -> None:
     first = Money(Decimal(left), "PLN")
     second = Money(Decimal(right), "PLN")
@@ -190,8 +190,8 @@ def test_money_rejects_comparison_of_different_currencies() -> None:
     second = Money(Decimal("200.00"), "EUR")
 
     with pytest.raises(
-        InvalidCurrencyError,
-        match="Currencies must match: PLN != EUR",
+            InvalidCurrencyError,
+            match="Currencies must match: PLN != EUR",
     ):
         first < second
 

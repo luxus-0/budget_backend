@@ -38,8 +38,8 @@ def test_validate_currency_accepts_supported_currency(currency: str) -> None:
     ],
 )
 def test_validate_currency_normalizes_to_uppercase(
-    currency: str,
-    expected: str,
+        currency: str,
+        expected: str,
 ) -> None:
     assert validate_currency(currency) == expected
 
@@ -73,7 +73,7 @@ def test_validate_currency_strips_whitespace(currency: str) -> None:
     ],
 )
 def test_validate_currency_rejects_unsupported_currency(
-    currency: str,
+        currency: str,
 ) -> None:
     with raises(InvalidCurrencyError):
         validate_currency(currency)

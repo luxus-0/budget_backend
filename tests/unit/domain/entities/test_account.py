@@ -33,7 +33,7 @@ def test_account_creates_with_valid_data() -> None:
     ],
 )
 def test_account_supports_all_account_types(
-    kind: AccountType,
+        kind: AccountType,
 ) -> None:
     account = Account.create(
         user_id=uuid4(),
@@ -122,8 +122,8 @@ def test_account_accepts_internal_whitespace_in_name() -> None:
 )
 def test_account_rejects_empty_name(name: str) -> None:
     with pytest.raises(
-        InvalidAccountError,
-        match="Account name cannot be empty.",
+            InvalidAccountError,
+            match="Account name cannot be empty.",
     ):
         Account.create(
             user_id=uuid4(),
@@ -156,8 +156,8 @@ def test_account_normalizes_currency(currency: str) -> None:
 
 def test_account_rejects_invalid_currency() -> None:
     with pytest.raises(
-        InvalidCurrencyError,
-        match="Unsupported currency: ABC",
+            InvalidCurrencyError,
+            match="Unsupported currency: ABC",
     ):
         Account.create(
             user_id=uuid4(),
@@ -240,8 +240,8 @@ def test_account_rename_rejects_empty_name(name: str) -> None:
     )
 
     with pytest.raises(
-        InvalidAccountError,
-        match="Account name cannot be empty.",
+            InvalidAccountError,
+            match="Account name cannot be empty.",
     ):
         account.rename(name)
 

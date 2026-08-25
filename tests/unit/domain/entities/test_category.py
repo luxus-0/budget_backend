@@ -122,8 +122,8 @@ def test_category_accepts_name_with_exactly_70_characters() -> None:
 )
 def test_category_rejects_empty_name(name: str) -> None:
     with pytest.raises(
-        InvalidCategoryError,
-        match="Category name cannot be empty.",
+            InvalidCategoryError,
+            match="Category name cannot be empty.",
     ):
         Category.create(
             name=name,
@@ -135,8 +135,8 @@ def test_category_rejects_name_longer_than_70_characters() -> None:
     name = "A" * 71
 
     with pytest.raises(
-        InvalidCategoryError,
-        match="Category name cannot exceed 70 characters.",
+            InvalidCategoryError,
+            match="Category name cannot exceed 70 characters.",
     ):
         Category.create(
             name=name,
@@ -148,8 +148,8 @@ def test_category_rejects_name_that_exceeds_70_characters_after_stripping() -> N
     name = f"  {'A' * 71}  "
 
     with pytest.raises(
-        InvalidCategoryError,
-        match="Category name cannot exceed 70 characters.",
+            InvalidCategoryError,
+            match="Category name cannot exceed 70 characters.",
     ):
         Category.create(
             name=name,
@@ -308,8 +308,8 @@ def test_category_rename_rejects_empty_name(name: str) -> None:
     )
 
     with pytest.raises(
-        InvalidCategoryError,
-        match="Category name cannot be empty.",
+            InvalidCategoryError,
+            match="Category name cannot be empty.",
     ):
         category.rename(name)
 
@@ -321,8 +321,8 @@ def test_category_rename_rejects_name_longer_than_70_characters() -> None:
     )
 
     with pytest.raises(
-        InvalidCategoryError,
-        match="Category name cannot exceed 70 characters.",
+            InvalidCategoryError,
+            match="Category name cannot exceed 70 characters.",
     ):
         category.rename("A" * 71)
 
