@@ -50,12 +50,12 @@ class Transaction:
 
     @classmethod
     def create(
-        cls,
-        account_id: UUID,
-        amount: Money,
-        kind: TransactionType,
-        category_id: UUID,
-        description: str = ""
+            cls,
+            account_id: UUID,
+            amount: Money,
+            kind: TransactionType,
+            category_id: UUID,
+            description: str = ""
     ) -> "Transaction":
         """
         Create a new financial transaction.
