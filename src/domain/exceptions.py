@@ -20,3 +20,10 @@ class InvalidAmountError(DomainError):
 
 class InvalidCurrencyError(DomainError):
     pass
+
+class InvalidBudgetError(DomainError):
+    pass
+
+
+class InvalidBudgetPeriodError(DomainError):
+    pass
