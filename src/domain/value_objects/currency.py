@@ -1,6 +1,5 @@
 from src.domain.exceptions import InvalidCurrencyError
 
-
 VALID_CURRENCIES = frozenset({
     "PLN",
     "USD",
