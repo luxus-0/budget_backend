@@ -16,8 +16,8 @@ from domain.entities.account import Account
 
 
 class AccountRepository(Protocol):
-    def save(self, account: Account) -> None:
+    async def save(self, account: Account) -> None:
         pass
 
-    def get_by_id(self, account_id: UUID, user_id: UUID) -> Account | None:
+    async def get_by_id(self, account_id: UUID, user_id: UUID) -> Account | None:
         pass
