@@ -35,6 +35,7 @@ class Transaction:
     amount: Money
     kind: TransactionType
     category_id: UUID
+    user_id: UUID
     description: str = ""
     occurred_at: datetime = field(default_factory=_utcnow)
     created_at: datetime = field(default_factory=_utcnow)
@@ -54,7 +55,7 @@ class Transaction:
         amount: Money,
         kind: TransactionType,
         category_id: UUID,
-        description: str = "",
+        description: str = ""
     ) -> "Transaction":
         """
         Create a new financial transaction.
@@ -76,6 +77,7 @@ class Transaction:
             kind=kind,
             category_id=category_id,
             description=description,
+            user_id=uuid4()
         )
 
     def signed_amount(self) -> Money:
