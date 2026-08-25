@@ -1,3 +1,3 @@
-#PUSTA KLASA
+# PUSTA KLASA
 class CreateAccountUseCase:
     pass
