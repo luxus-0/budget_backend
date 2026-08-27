@@ -21,3 +21,6 @@ class AccountRepository(Protocol):
 
     async def get_by_id(self, account_id: UUID, user_id: UUID) -> Account | None:
         pass
+
+    async def exists_with_name(self, user_id: UUID, name: str) -> bool:
+        pass
