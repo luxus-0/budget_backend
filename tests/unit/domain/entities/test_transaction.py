@@ -4,9 +4,9 @@ from uuid import uuid4
 
 import pytest
 
-from src.domain.entities.transaction import Transaction, TransactionType
-from src.domain.exceptions import InvalidTransactionError
-from src.domain.value_objects.money import Money
+from domain.entities.transaction import Transaction, TransactionType
+from domain.exceptions import InvalidTransactionError
+from domain.value_objects.money import Money
 
 
 def test_transaction_create_creates_transaction() -> None:

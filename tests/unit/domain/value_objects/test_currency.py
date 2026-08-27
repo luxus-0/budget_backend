@@ -2,7 +2,7 @@ import pytest
 from _pytest.raises import raises
 
 from domain.value_objects.currency import validate_currency
-from src.domain.exceptions import InvalidCurrencyError
+from domain.exceptions import InvalidCurrencyError
 
 
 @pytest.mark.parametrize(

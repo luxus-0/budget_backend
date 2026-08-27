@@ -3,8 +3,8 @@ from typing import Any
 
 import pytest
 
-from src.domain.exceptions import InvalidAmountError, InvalidCurrencyError
-from src.domain.value_objects.money import Money
+from domain.exceptions import InvalidAmountError, InvalidCurrencyError
+from domain.value_objects.money import Money
 
 
 def test_money_creates_with_decimal_amount() -> None:

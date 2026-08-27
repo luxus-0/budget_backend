@@ -3,8 +3,8 @@ from uuid import UUID, uuid4
 
 import pytest
 
-from src.domain.entities.account import Account, AccountType
-from src.domain.exceptions import InvalidAccountError, InvalidCurrencyError
+from domain.entities.account import Account, AccountType
+from domain.exceptions import InvalidAccountError, InvalidCurrencyError
 
 
 def test_account_creates_with_valid_data() -> None:

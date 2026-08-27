@@ -5,8 +5,8 @@ from datetime import datetime, timezone
 from enum import Enum
 from uuid import UUID, uuid4
 
-from src.domain.exceptions import InvalidTransactionError
-from src.domain.value_objects.money import Money
+from domain.exceptions import InvalidTransactionError
+from domain.value_objects.money import Money
 
 
 class TransactionType(str, Enum):

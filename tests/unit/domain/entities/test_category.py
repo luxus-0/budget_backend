@@ -3,8 +3,8 @@ from uuid import UUID, uuid4
 
 import pytest
 
-from src.domain.entities.category import Category, CategoryType
-from src.domain.exceptions import InvalidCategoryError
+from domain.entities.category import Category, CategoryType
+from domain.exceptions import InvalidCategoryError
 
 
 def test_category_creates_income_category() -> None:
