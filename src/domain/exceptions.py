@@ -6,6 +6,10 @@ class InvalidAccountError(DomainError):
     pass
 
 
+class AccountAlreadyExistsError(DomainError):
+    pass
+
+
 class InvalidCategoryError(DomainError):
     pass
 
