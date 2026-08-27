@@ -5,8 +5,8 @@ from datetime import datetime, timezone
 from enum import Enum
 from uuid import UUID, uuid4
 
-from src.domain.exceptions import InvalidAccountError
-from src.domain.value_objects.currency import validate_currency
+from domain.exceptions import InvalidAccountError
+from domain.value_objects.currency import validate_currency
 
 
 class AccountType(str, Enum):

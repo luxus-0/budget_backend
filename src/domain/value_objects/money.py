@@ -5,8 +5,8 @@ from decimal import Decimal
 from functools import total_ordering
 from numbers import Number
 
-from src.domain.exceptions import InvalidAmountError, InvalidCurrencyError
-from src.domain.value_objects.currency import validate_currency
+from domain.exceptions import InvalidAmountError, InvalidCurrencyError
+from domain.value_objects.currency import validate_currency
 
 
 @total_ordering

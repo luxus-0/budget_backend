@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 from enum import Enum
 from uuid import UUID, uuid4
 
-from src.domain.exceptions import InvalidCategoryError
+from domain.exceptions import InvalidCategoryError
 
 
 class CategoryType(str, Enum):
